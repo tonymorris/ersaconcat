@@ -151,9 +151,14 @@ defaultErsaConcatDirectories c =
         ("dist" </> base c </> "log")
   
 baseuri ::
-  String
-baseuri =
-  "https://www.airservicesaustralia.com/aip/pending/ersa/"
+  ErsaDocument
+  -> String
+baseuri (ErsaDocument _ _ _ j) =
+  concat [
+    "https://www.airservicesaustralia.com/aip/"
+  , currentPendingPath j
+  , "/ersa/"
+  ]
 
 getersadocuments ::
   ErsaConcatDirectories
@@ -174,7 +179,7 @@ getersadocuments (ErsaConcatDirectories f w _ l) d u =
                   , "--show-progress"
                   , "--directory-prefix"
                   , w
-                  , baseuri ++ a
+                  , baseuri d ++ a
                   ])
         u
 

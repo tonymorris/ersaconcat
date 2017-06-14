@@ -35,4 +35,5 @@ ersas =
   , ErsaDocument "40" "10-Nov-2016" "2" ErsaPending
   , ErsaDocument "40" "02-Mar-2017" "1" ErsaCurrent
   , ErsaDocument "40" "25-Mar-2017" "2" ErsaPending
+  , ErsaDocument "40" "25-May-2017" "1" ErsaCurrent
   ]
